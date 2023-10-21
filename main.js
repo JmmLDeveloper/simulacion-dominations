@@ -223,6 +223,8 @@ class Soldier extends CombatEntity{
 }
 
 window.addEventListener("load", () => {
+  console.log('version 1')
+
   let canvas = document.getElementById("main-canvas");
   let ctx = canvas.getContext("2d");
 
