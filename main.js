@@ -2,6 +2,10 @@ const dtFactor = 0.01;
 const CANVAS_DIM = 500;
 
 
+function getRandomCord() {
+  return Math.max(50,Math.random() * (CANVAS_DIM - 50));
+}
+
 function distance(s1, s2) {
   return Math.sqrt(Math.pow(s1.x - s2.x, 2) + Math.pow(s1.y - s2.y, 2));
 }
@@ -18,7 +22,7 @@ function getNormalizedDirecton(s1, s2) {
 }
 
 class CombatEntity {
-  constructor(team = 'A',x = Math.random() * CANVAS_DIM ,y = Math.random() * CANVAS_DIM, hp = 100,attack = 10 ,speed = 5 ,attackSpeed = 1 ) {
+  constructor(team = 'A',x = getRandomCord() ,y = getRandomCord(), hp = 100,attack = 10 ,speed = 5 ,attackSpeed = 1 ) {
     this.team = team;
     this.x = x;
     this.y = y;
