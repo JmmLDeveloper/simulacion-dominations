@@ -223,7 +223,7 @@ class Soldier extends CombatEntity{
 }
 
 window.addEventListener("load", () => {
-  console.log('version 1')
+  console.log('version 1.1')
 
   let canvas = document.getElementById("main-canvas");
   let ctx = canvas.getContext("2d");
@@ -298,12 +298,12 @@ window.addEventListener("load", () => {
         continue;
       }
       if (gameState.running) {
-        updatePage(gameState);
         entities[i].update(dt,gameState);
       }
       entities[i].draw(ctx);
     }
-
+    
+    updatePage(gameState);
     //updatePage(gameState);
     
 
