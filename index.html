@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <style>
+
+    *{
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      padding: 1rem;
+      margin: 0;
+    }
+
+    h1,h2,h3,h4,h5,h6,p {
+      padding: 0rem;
+      margin: 0rem;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      list-style-type: none;
+    }
+
+    .soldier-stats {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 0.4rem 0rem ;
+    }
+
+    #main-canvas {
+      margin-top:0.5rem;
+      border: solid 1px black;
+      height: 500px;
+      width: 500px;
+    }
+
+    #main-wrapper {
+      display: flex;
+      flex-direction: row;
+      align-items: space-between;
+    }
+
+    #control-pane {
+      padding: 2rem;
+      padding-top:1rem ;
+    }
+
+    #soldier-selection {
+      margin-top: 1rem;
+      width: 400px;
+      border-top: solid 2px black;
+;
+    }
+
+    #soldiers {
+      margin-top: 0.5rem;
+      width: 500px;
+      border-top: solid 2px black;
+      padding: 0.5rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .soldier-input-wrapper {
+      display: flex;
+      border-top: solid 1px black;
+      flex-direction: row;
+      justify-content: space-between;
+      padding:0.4rem 0;
+
+    } 
+
+    .soldier-input-wrapper input,.soldier-input-wrapper select {
+      width: 40%;
+    }
+
+    .soldier-input-wrapper label {
+      font-size: 1.2rem;
+    }
+
+    #input-message {
+      font-size: 1.1rem;
+      font-weight: bold;
+      padding: 0.5rem 0;
+      text-align: center;
+    }
+
+    #click-message {
+
+      text-align: center;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #2B8FED;
+    }
+
+    .stat-span {
+      margin-left: 0.5rem;
+      display: flex;
+      width: 60px;
+    }
+
+    .stat-span.small {
+      width: 35px;
+
+    }
+
+    .stat-span.hp {
+      width: 45px;
+
+    }
+
+    .soldier-title {
+      text-align: center;
+    }
+
+    #start-button {
+      font-size: bold;
+      background-color:  limegreen;
+      border-color: transparent;
+      color:white;
+      font-size: 1.2rem;
+      border-radius: 0.5rem;
+    }
+
+    #stop-button {
+      background-color: tomato;
+      border-color: transparent;
+      border-radius: 0.5rem;
+      color:white;
+      font-size: bold;
+      font-size: 1.2rem;
+    }
+
+
+    #soldiers-a {
+      border-right: 2px solid black;
+      margin-right: 1rem;
+      width: 250px;
+    }
+
+  </style>
+
+</head>
+<body>
+    
+  
+  
+  
+  <div id="main-wrapper" >
+    <div>
+        <h1> Simulacion Combate Dominations </h1>
+        <canvas id="main-canvas"  width="500" height="500" >
+  
+        </canvas>
+    </div>
+    <div id="control-pane" >
+        <button id="start-button">Comenzar Simulacion</button>
+        <button id="stop-button">Parar Simulacion</button>
+        <div id="soldier-selection">
+          <p id="input-message" > Soldado actual a crear </p>
+          <div class="soldier-input-wrapper" >
+            <label for="soldier-team"> equipo: </label>
+            <select name="soldier-team" id="soldier-team">
+              <option value="a">A</option>
+              <option value="b">B</option>
+            </select>
+          </div>
+
+          <div class="soldier-input-wrapper">
+
+            <label for="soldier-type"> tipo: </label>
+            <select name="soldier-type" id="soldier-type">
+              <option value="archer"> Arquero </option>
+              <option value="melee"> Melee  </option>
+            </select>
+          </div>
+
+          <div class="soldier-input-wrapper">
+            <label for="soldier-hp"> vida: </label>
+            <input id="soldier-hp" type="number" value="50">
+          </div>
+
+          <div class="soldier-input-wrapper">
+            <label for="soldier-attack"> ataque: </label>
+            <input id="soldier-attack" type="number" value="10">
+          </div>
+
+          <div class="soldier-input-wrapper">
+            <label for="soldier-speed"> velocidad movimiento: </label>
+            <input id="soldier-speed" type="number" value="5">
+          </div>
+
+          <div class="soldier-input-wrapper">
+            <label for="soldier-atk-speed"> velocidad ataque (1 al 5) : </label>
+            <input id="soldier-atk-speed" type="number" value="1" max="5" min="1" >
+          </div>
+
+
+          <p id="click-message"> dale click a la arena de combate para crear soldados de este tipo </p>
+
+        </div>
+        <div id="soldiers">
+          <div id="soldiers-a">
+            <p class="soldier-title">Equipo A</p>
+            <ul>
+
+            </ul>
+          </div>
+          <div id="soldiers-b">
+            <p class="soldier-title">Equipo B</p>
+            <ul>
+
+            </ul>
+          </div>
+        </div>
+    </div>
+  </div>
+
+    <script src="./main.js" ></script>
+</body>
+</html>
